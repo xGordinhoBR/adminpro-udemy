@@ -1,0 +1,59 @@
+<div class="row animated fadeIn">
+    <div class="col-lg-7">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Perfil de usuario</h4>
+                <h6 class="card-subtitle">nombre usuario</h6>
+                <form ngNativeValidate #f="ngForm" (ngSubmit)="guardar(f.value)" class="form-horizontal p-t-20">
+
+                    <div class="form-group row">
+                        <label for="exampleInputuname3" class="col-sm-3 control-label">Usuario</label>
+                        <div class="col-sm-9">
+                            <div class="input-group">
+                                <div class="input-group-addon"><i class="ti-user"></i></div>
+                                <input [ngModel]="usuario.nombre" name="nombre" type="text" class="form-control" id="exampleInputuname3" placeholder="Usuario" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="exampleInputEmail3" class="col-sm-3 control-label">Email</label>
+                        <div class="col-sm-9">
+                            <div class="input-group">
+                                <div class="input-group-addon"><i class="ti-email"></i></div>
+                                <input [ngModel]=" usuario.email" [disabled]="usuario.google" name="email" type="email" class="form-control" id="exampleInputEmail3" placeholder="Email usuario" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group row m-b-0">
+                        <div class="offset-sm-3 col-sm-9">
+                            <button type="submit" class="btn btn-success waves-effect waves-light"><i class="fa fa-save"></i> Guardar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-5">
+        <div class="card">
+            <div class="card-body" align="center">
+                <h4 class="card-title">Imagen Perfil</h4>
+                <h6 class="card-subtitle">nombre usuario</h6>
+
+                <img *ngIf="!imagenTemp" [src]="usuario.img | imagen" class="w150">
+                <img *ngIf="imagenTemp" [src]="imagenTemp" class="w150">
+                <br><br>
+                <input (change)="seleccionImagen( $event.target.files[0])" type="file">
+                <br>
+                <br>
+                <div class="form-group row m-b-0">
+                    <div class="offset-sm-3 col-sm-9">
+                        <button (click)="cambiarImagen()" [disabled]="!imagenSubir" type="button" class="btn btn-block btn-success waves-effect waves-light"><i class="fa fa-save"></i> Actualizar imagen</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
