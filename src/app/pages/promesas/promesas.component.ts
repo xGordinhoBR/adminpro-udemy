@@ -9,7 +9,7 @@ export class PromesasComponent implements OnInit {
 
   constructor() {
 
-    this.contarTres().then( mensaje => console.log( 'terminó', mensaje ))
+    this.contarTres().then()
            .catch ( error => console.log( 'Error en la promesa', error));
    }
 
@@ -24,11 +24,9 @@ export class PromesasComponent implements OnInit {
       const intervalo = setInterval( () => {
 
             contador += 1;
-            console.log( contador );
 
             if (contador === 3) {
               resolve( true );
-              // reject('Simplemente un error.');
               clearInterval(intervalo);
             }
         }, 1000);
