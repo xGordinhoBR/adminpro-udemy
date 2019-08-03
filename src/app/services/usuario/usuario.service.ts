@@ -16,7 +16,7 @@ export class UsuarioService {
   usuario: Usuario;
   token: string;
 
-  constructor( 
+  constructor(
     public http: HttpClient,
     public router: Router,
     public subirArchivoService: SubirArchivoService ) {
