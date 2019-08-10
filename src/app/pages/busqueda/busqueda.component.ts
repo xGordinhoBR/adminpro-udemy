@@ -23,7 +23,7 @@ export class BusquedaComponent implements OnInit {
   ) {
 
     activatedRoute.params.subscribe(params => {
-      const termino = params['termino'];
+      const termino = params.termino;
       this.buscar( termino );
     });
    }
